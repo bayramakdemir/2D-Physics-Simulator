@@ -4,7 +4,7 @@
 #include "../Core.h"
 
 namespace Simulator {
-	class SIMULATOR_API WindowsWindow{
+	class WindowsWindow{
 	public:
 		WindowsWindow();
 		~WindowsWindow();

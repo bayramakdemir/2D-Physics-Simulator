@@ -4,11 +4,11 @@
 
 namespace Simulator {
 
-    class SIMULATOR_API Application {
+    class Application {
     public:
         Application();
         virtual ~Application();
-        void Run();
+        virtual void Run(); //reun in client
     };
 
     //to be defined in client

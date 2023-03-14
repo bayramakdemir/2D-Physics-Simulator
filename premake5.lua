@@ -11,8 +11,10 @@ workspace "2D-Physic-Simulator"
 outputsDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 project "2D-Physic-Simulator"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputsDir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputsDir .. "/%{prj.name}")
@@ -38,29 +40,31 @@ project "2D-Physic-Simulator"
 	 }
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
+
 		systemversion "latest"
 
 		defines
 		{
 			"_CRT_SECURE_NO_WARNINGS",
 			"PYS_PLATFORM_WINDOWS",
-			"PYS_BUILD_DLL"
 		}
 
 	filter "configurations:Debug"
 		defines "PYS_DEBUG"
-		symbols "On"
+		runtime "Debug"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "PYS_RELEASE"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 	
 project "Test"
 	kind "ConsoleApp"
 	location "Test"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputsDir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputsDir .. "/%{prj.name}")
@@ -89,8 +93,6 @@ project "Test"
 	
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -98,15 +100,11 @@ project "Test"
 			"_CRT_SECURE_NO_WARNINGS",
 			"PYS_PLATFORM_WINDOWS"
 		}
-		postbuildcommands
-		{
-			"{COPY} ../bin/" .. outputsDir .. "/%{wks.name}/*.dll ../bin/" .. outputsDir .. "/Test"
-		}
-		
+
 	filter "configurations:Debug"
 		defines "PYS_DEBUG"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "PYS_RELEASE"
-		optimize "On"
+		optimize "on"
