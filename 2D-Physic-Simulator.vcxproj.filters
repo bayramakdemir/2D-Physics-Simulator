@@ -20,6 +20,10 @@
     <ClInclude Include="2D-Physic-Simulator\src\Window\WindowsWindow.h">
       <Filter>Window</Filter>
     </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Object\Scene.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Object\Object.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Manager\SceneManager.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Shape\Circle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="2D-Physic-Simulator\src\Simulator\Application.cpp">
@@ -28,5 +32,9 @@
     <ClCompile Include="2D-Physic-Simulator\src\Window\WindowsWindow.cpp">
       <Filter>Window</Filter>
     </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Object\Scene.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Object\Object.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Manager\SceneManager.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Shape\Circle.cpp" />
   </ItemGroup>
 </Project>
