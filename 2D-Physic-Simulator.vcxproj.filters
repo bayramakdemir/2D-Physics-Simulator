@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{40C44515-ACA3-C4B0-B5BB-4F87211A2B12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{DCCA4FC7-C86C-7A9D-B127-8EF19D6801EE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{888B590D-F46A-D8A8-FD82-637F69E13E0A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shape">
+      <UniqueIdentifier>{D6A4170E-42B9-3FBF-0B3B-E31E770E3CF0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Simulator">
       <UniqueIdentifier>{6571C67C-D1DB-7AF3-1A1A-2C9986C35848}</UniqueIdentifier>
     </Filter>
@@ -10,6 +22,30 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2D-Physic-Simulator\src\Core.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Manager\SceneManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Object\Object.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Object\Scene.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Physics\CircleMesh.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Physics\Mesh.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Physics\RectangleMesh.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Physics\Rigidbody.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Shape\Circle.h">
+      <Filter>Shape</Filter>
+    </ClInclude>
     <ClInclude Include="2D-Physic-Simulator\src\Simulator.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Simulator\Application.h">
       <Filter>Simulator</Filter>
@@ -20,21 +56,40 @@
     <ClInclude Include="2D-Physic-Simulator\src\Window\WindowsWindow.h">
       <Filter>Window</Filter>
     </ClInclude>
-    <ClInclude Include="2D-Physic-Simulator\src\Object\Scene.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Object\Object.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Manager\SceneManager.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Shape\Circle.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\GraphicCore.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\Shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="2D-Physic-Simulator\src\Manager\SceneManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Object\Object.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Object\Scene.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Physics\CircleMesh.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Physics\Mesh.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Physics\RectangleMesh.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Physics\Rigidbody.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Shape\Circle.cpp">
+      <Filter>Shape</Filter>
+    </ClCompile>
     <ClCompile Include="2D-Physic-Simulator\src\Simulator\Application.cpp">
       <Filter>Simulator</Filter>
     </ClCompile>
     <ClCompile Include="2D-Physic-Simulator\src\Window\WindowsWindow.cpp">
       <Filter>Window</Filter>
     </ClCompile>
-    <ClCompile Include="2D-Physic-Simulator\src\Object\Scene.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Object\Object.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Manager\SceneManager.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Shape\Circle.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\Shader.cpp" />
   </ItemGroup>
 </Project>

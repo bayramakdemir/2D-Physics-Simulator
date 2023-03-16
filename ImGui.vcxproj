@@ -11,16 +11,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C55D4582-31BF-2290-BA2C-6942268D594F}</ProjectGuid>
+    <ProjectGuid>{C0FF640D-2C14-8DBE-F595-301E616989EF}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>2D-Physic-Simulator</RootNamespace>
+    <RootNamespace>ImGui</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
+    <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
@@ -41,32 +41,30 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>bin\Debug-windows-x86_64\2D-Physic-Simulator\</OutDir>
-    <IntDir>bin-int\Debug-windows-x86_64\2D-Physic-Simulator\</IntDir>
-    <TargetName>2D-Physic-Simulator</TargetName>
+    <OutDir>bin\Debug-windows-x86_64\ImGui\</OutDir>
+    <IntDir>bin-int\Debug-windows-x86_64\ImGui\</IntDir>
+    <TargetName>ImGui</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>bin\Release-windows-x86_64\2D-Physic-Simulator\</OutDir>
-    <IntDir>bin-int\Release-windows-x86_64\2D-Physic-Simulator\</IntDir>
-    <TargetName>2D-Physic-Simulator</TargetName>
+    <OutDir>bin\Release-windows-x86_64\ImGui\</OutDir>
+    <IntDir>bin-int\Release-windows-x86_64\ImGui\</IntDir>
+    <TargetName>ImGui</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PYS_PLATFORM_WINDOWS;PYS_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>2D-Physic-Simulator\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
       <AdditionalDependencies>glew\glew32.lib;glfw\glfw3_mt.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -77,7 +75,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PYS_PLATFORM_WINDOWS;PYS_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PYS_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>2D-Physic-Simulator\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -94,44 +92,29 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>glew\glew32s.lib;glfw\glfw3_mt.lib;opengl43.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew\glew32.lib;glfw\glfw3_mt.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>2D-Physic-Simulator\Dependencies\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="2D-Physic-Simulator\src\Core.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Graphics\GraphicCore.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Manager\SceneManager.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Object\Object.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Object\Scene.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Physics\CircleMesh.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Physics\Mesh.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Physics\RectangleMesh.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Physics\Rigidbody.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Shape\Circle.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Simulator.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Simulator\Application.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Simulator\EntryPoint.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Window\WindowsWindow.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Graphics\Shader.h" />
+    <ClInclude Include="2D-Physic-Simulator\Dependencies\include\ImGui\imconfig.h" />
+    <ClInclude Include="2D-Physic-Simulator\Dependencies\include\ImGui\imgui.h" />
+    <ClInclude Include="2D-Physic-Simulator\Dependencies\include\ImGui\imgui_impl_glfw.h" />
+    <ClInclude Include="2D-Physic-Simulator\Dependencies\include\ImGui\imgui_impl_opengl3.h" />
+    <ClInclude Include="2D-Physic-Simulator\Dependencies\include\ImGui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="2D-Physic-Simulator\Dependencies\include\ImGui\imgui_internal.h" />
+    <ClInclude Include="2D-Physic-Simulator\Dependencies\include\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="2D-Physic-Simulator\Dependencies\include\ImGui\imstb_textedit.h" />
+    <ClInclude Include="2D-Physic-Simulator\Dependencies\include\ImGui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="2D-Physic-Simulator\src\Manager\SceneManager.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Object\Object.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Object\Scene.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Physics\CircleMesh.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Physics\Mesh.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Physics\RectangleMesh.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Physics\Rigidbody.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Shape\Circle.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Simulator\Application.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Window\WindowsWindow.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Graphics\Shader.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="ImGui.vcxproj">
-      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
-    </ProjectReference>
+    <ClCompile Include="2D-Physic-Simulator\Dependencies\include\ImGui\imgui.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\Dependencies\include\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\Dependencies\include\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\Dependencies\include\ImGui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\Dependencies\include\ImGui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\Dependencies\include\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\Dependencies\include\ImGui\imgui_widgets.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

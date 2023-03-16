@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Core.h"
-#include "GLEW/glew.h"
-#include "GLFW/glfw3.h"
 
 //simulator
 #include "Simulator/Application.h"
@@ -17,4 +15,6 @@
 
 //Shape
 #include "Shape/Circle.h"
+
+#include "Graphics/Shader.h"
 
