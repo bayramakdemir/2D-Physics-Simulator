@@ -3,5 +3,7 @@ out vec4 FragColor;
 
 void main()
 {
-    FragColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+    float sinx = sin(gl_FragCoord.x/400);
+    float siny= cos(gl_FragCoord.y/400);
+    FragColor = vec4(1.0f, sinx , siny, 1.0f);
 }

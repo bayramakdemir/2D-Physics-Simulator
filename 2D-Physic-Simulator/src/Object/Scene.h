@@ -14,7 +14,7 @@ namespace Simulator {
 	private:
 		std::vector<Object*> v_sceneObjects;
 
-		void render() const;
+		inline void render() const;
 	};
 }
 

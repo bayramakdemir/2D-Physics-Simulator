@@ -1,6 +1,6 @@
 #pragma once
 #include "GLEW/glew.h"
-#include <map>
+#include <unordered_map>
 #include <string>
 #include "glm/vec2.hpp"
 #include "glm/mat4x4.hpp"
@@ -20,22 +20,20 @@ namespace SimulatorCore {
 		void compileShaderFromFile(const char* filename, ShaderType type);
 		void compileShaderFromText(const char* text, ShaderType type);
 
-		void registerUniformLocation(const char* name);
-
-		void setUniform(const char* name, float x, float y, float z);
-		void setUniform(const char* name, glm::vec2& v);
+		void setUniform4f(const std::string& name, glm::vec4& v);
+		void setUniform3f(const std::string& name, glm::vec3& v);
+		void setUniform2f(const std::string& name, glm::vec2& v);
 	
-
-
 		void attachShader();
-		void useShader();
-
+		void bind() const;
+		void unbind() const;
 	private:
 		unsigned int m_program;
 		unsigned int m_shaders[2];
 		unsigned int m_count;
-		std::map<std::string, int> m_uniformLocations;
+		std::unordered_map<std::string, int> m_uniformLocations;
 		
+		int getUniformLocation(const std::string& location);
 		void dispose();
 	};
 }

@@ -11,9 +11,7 @@ namespace SimulatorCore {
 			text += line + "\n";
 		}
 		const char* data = text.c_str();
-		if (data == "") {
-			LOG("Shader not found. Please check the path or name")
-		}
+		ASSERT(text != "");
 		compileShaderFromText(data, type);
 	}
 	void Shader::compileShaderFromText(const char* text, ShaderType type) {
@@ -29,13 +27,11 @@ namespace SimulatorCore {
 		default:
 			break;
 		}
-
-		
-		shader = glCreateShader(shadertype);
-		glShaderSource(shader, 1, &text, NULL);
-		glCompileShader(shader);
+		GLCall(shader = glCreateShader(shadertype));
+		GLCall(glShaderSource(shader, 1, &text, NULL));
+		GLCall(glCompileShader(shader));
 		int success;
-		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+		GLCall(glGetShaderiv(shader, GL_COMPILE_STATUS, &success));
 		if (!success) {
 			char infoLog[512];
 			glGetShaderInfoLog(shader, 512, NULL, infoLog);
@@ -44,6 +40,7 @@ namespace SimulatorCore {
 		}
 		m_shaders[type] = shader;
 	}
+
 	void Shader::attachShader() {
 		if (m_shaders[0] == 0) {
 			LOG("Vertex Shader not found. Defealt vs will be used.");
@@ -54,42 +51,53 @@ namespace SimulatorCore {
 			compileShaderFromFile("../assets/shaders/FragmentShader.fs", Shader::FRAGMENT);
 		}
 		
-		glAttachShader(m_program, m_shaders[0]);
-		glAttachShader(m_program, m_shaders[1]);
-		glLinkProgram(m_program);
+		GLCall(glAttachShader(m_program, m_shaders[0]));
+		GLCall(glAttachShader(m_program, m_shaders[1]));
+		GLCall(glLinkProgram(m_program));
+		GLCall(glValidateProgram(m_program));
 
 		int success;
-		glGetProgramiv(m_program, GL_LINK_STATUS, &success);
+		GLCall(glGetProgramiv(m_program, GL_LINK_STATUS, &success));
 		if (!success) {
 			char infoLog[512];
 			glGetProgramInfoLog(m_program, 512, NULL, infoLog);
 			LOG("ERROR SHADER LINKING FAILED:" << infoLog);
 		}
 
-		glDeleteShader(m_shaders[0]);
-		glDeleteShader(m_shaders[1]);
-	}
-	void Shader::useShader() {
-		//better to call validate before every draw call for checking. can be reomved in the future
-		//glValidateProgram(m_program);
-		glUseProgram(m_program);
+		GLCall(glDeleteShader(m_shaders[0]));
+		GLCall(glDeleteShader(m_shaders[1]));
 	}
 
-
-	void Shader::registerUniformLocation(const char* name) {
-		m_uniformLocations[name] = glGetAttribLocation(m_program, name);
+	void Shader::bind() const {
+		GLCall(glUseProgram(m_program));
 	}
-	void Shader::setUniform(const char* name, float x, float y, float z) {
-
-		glVertexAttribPointer(m_uniformLocations[name], 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-	}
-	void Shader::setUniform(const char* name, glm::vec2& v) {
-
+	void Shader::unbind() const {
+		GLCall(glUseProgram(0));
 	}
 
+	void Shader::setUniform4f(const std::string& name, glm::vec4& v) {
+		GLCall(glUniform4f(getUniformLocation(name),v.x,v.y,v.z,v.w));
+	}
+
+	void Shader::setUniform3f(const std::string& name, glm::vec3& v) {
+	}
+
+	void Shader::setUniform2f(const std::string& name, glm::vec2& v) {
+	}
+
+	int Shader::getUniformLocation(const std::string& name) {
+		if (m_uniformLocations.find(name) != m_uniformLocations.end())
+			return m_uniformLocations[name];
+
+		GLCall(int location = glGetUniformLocation(m_program, name.c_str()));
+		if (location == -1) {
+			LOG("Warning: Uniform " << name << "doesnt exist");
+		}
+		m_uniformLocations[name] = location;
+		return location;
+	}
 
 	void Shader::dispose() {
-		glDeleteProgram(m_program);
+		GLCall(glDeleteProgram(m_program));
 	}
 }

@@ -58,6 +58,11 @@
     </ClInclude>
     <ClInclude Include="2D-Physic-Simulator\src\Graphics\GraphicCore.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Graphics\Shader.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexBuffer.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\IndexBuffer.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexArray.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexBufferLayout.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="2D-Physic-Simulator\src\Manager\SceneManager.cpp">
@@ -91,5 +96,11 @@
       <Filter>Window</Filter>
     </ClCompile>
     <ClCompile Include="2D-Physic-Simulator\src\Graphics\Shader.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Core.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexBuffer.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\IndexBuffer.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexArray.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexBufferLayout.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\Renderer.cpp" />
   </ItemGroup>
 </Project>
