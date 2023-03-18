@@ -7,6 +7,14 @@ namespace SimulatorCore {
 		shader.bind();
 		GLCall(glDrawElements(GL_TRIANGLES, indexBuffer.getCount(), GL_UNSIGNED_INT, 0));
 	}
+	void Renderer::render(const Simulator::Scene& scene) const {
+		scene.render();
+	}
+	void Renderer::render(const Simulator::Scene& scene, const Shader& shader) const {
+		shader.bind();
+		scene.render();
+		shader.unbind();
+	}
 }
 
 

@@ -10,12 +10,12 @@
 //manager
 #include "Manager/SceneManager.h"
 
-//Object
-#include "Object/Object.h"
+//GameObject
+#include "Object/GameObject.h"
 #include "Object/Scene.h"
 
 //Shape
-#include "Shape/Circle.h"
+#include "Object/Circle.h"
 
 #include "Graphics/Shader.h"
 #include "Graphics/IndexBuffer.h"

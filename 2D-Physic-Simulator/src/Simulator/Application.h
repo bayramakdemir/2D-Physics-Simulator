@@ -6,7 +6,11 @@ namespace Simulator {
     public:
         Application();
         virtual ~Application();
-        virtual void Run(); //reun in client
+
+        virtual void OnUpdate(){};
+        virtual void OnRender(){};
+        virtual void OnStart(){};
+
     };
 
     //to be defined in client

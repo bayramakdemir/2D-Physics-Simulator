@@ -36,9 +36,9 @@ project "2D-Physic-Simulator"
 	}
 	links 
 	{ 
-		"glew/glew32", 
+		"glew/glew32s", 
 		"glfw/glfw3_mt",
-		"opengl32",
+		"opengl33",
 		"ImGui"
 	 }
 

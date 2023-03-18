@@ -3,12 +3,12 @@
 namespace Simulator {
 
 	void Scene::render() const{
-		for (const auto* obj: v_sceneObjects) {
+		for (const auto* obj: v_sceneGameObjects) {
 			obj->render();
 		}
 	}
-	void Scene::addObject(Object* obj){
-		v_sceneObjects.push_back(obj);
+	void Scene::addGameObject(GameObject* obj){
+		v_sceneGameObjects.push_back(obj);
 	}
 
 }

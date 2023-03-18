@@ -1,5 +1,5 @@
 #pragma once
-#include "../Object/Object.h"
+#include "../Object/GameObject.h"
 #include <vector>
 #include <memory>
 
@@ -9,12 +9,12 @@ namespace Simulator {
 	class Scene {
 		friend class SceneManager;
 	public:
-		void addObject(Object* obj);
+		void addGameObject(GameObject* obj);
+		void render() const;
 
 	private:
-		std::vector<Object*> v_sceneObjects;
+		std::vector<GameObject*> v_sceneGameObjects;
 
-		inline void render() const;
 	};
 }
 

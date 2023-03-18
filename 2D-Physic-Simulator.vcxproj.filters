@@ -25,7 +25,7 @@
     <ClInclude Include="2D-Physic-Simulator\src\Manager\SceneManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
-    <ClInclude Include="2D-Physic-Simulator\src\Object\Object.h">
+    <ClInclude Include="2D-Physic-Simulator\src\Object\GameObject.h">
       <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="2D-Physic-Simulator\src\Object\Scene.h">
@@ -43,7 +43,7 @@
     <ClInclude Include="2D-Physic-Simulator\src\Physics\Rigidbody.h">
       <Filter>Physics</Filter>
     </ClInclude>
-    <ClInclude Include="2D-Physic-Simulator\src\Shape\Circle.h">
+    <ClInclude Include="2D-Physic-Simulator\src\Object\Circle.h">
       <Filter>Shape</Filter>
     </ClInclude>
     <ClInclude Include="2D-Physic-Simulator\src\Simulator.h" />
@@ -63,12 +63,15 @@
     <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexArray.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexBufferLayout.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Graphics\Renderer.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Object\Transform.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Object\Material.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Object\Component.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="2D-Physic-Simulator\src\Manager\SceneManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
-    <ClCompile Include="2D-Physic-Simulator\src\Object\Object.cpp">
+    <ClCompile Include="2D-Physic-Simulator\src\Object\GameObject.cpp">
       <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="2D-Physic-Simulator\src\Object\Scene.cpp">
@@ -86,7 +89,7 @@
     <ClCompile Include="2D-Physic-Simulator\src\Physics\Rigidbody.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="2D-Physic-Simulator\src\Shape\Circle.cpp">
+    <ClCompile Include="2D-Physic-Simulator\src\Object\Circle.cpp">
       <Filter>Shape</Filter>
     </ClCompile>
     <ClCompile Include="2D-Physic-Simulator\src\Simulator\Application.cpp">
@@ -102,5 +105,7 @@
     <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexArray.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexBufferLayout.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Graphics\Renderer.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Object\Transform.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Object\Material.cpp" />
   </ItemGroup>
 </Project>
