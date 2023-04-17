@@ -1,14 +1,11 @@
 #include "Scene.h"
+#include "TransformComponent.h"
 
 namespace Simulator {
 
-	void Scene::render() const{
-		for (const auto* obj: v_sceneGameObjects) {
-			obj->render();
-		}
-	}
-	void Scene::addGameObject(GameObject* obj){
-		v_sceneGameObjects.push_back(obj);
-	}
+	void Scene::addEntity(){
+		const auto entity = m_registery.create();
 
+		m_registery.emplace<TransformComponent>(entity);
+	}
 }

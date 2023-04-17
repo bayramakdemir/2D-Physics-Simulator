@@ -1,7 +1,7 @@
 #pragma once
-#include "../Object/GameObject.h"
 #include <vector>
 #include <memory>
+#include "entt/entt.hpp"
 
 namespace Simulator {
 	class SceneManager;
@@ -9,12 +9,11 @@ namespace Simulator {
 	class Scene {
 		friend class SceneManager;
 	public:
-		void addGameObject(GameObject* obj);
+		void addEntity();
 		void render() const;
 
 	private:
-		std::vector<GameObject*> v_sceneGameObjects;
-
+		entt::registry m_registery;
 	};
 }
 

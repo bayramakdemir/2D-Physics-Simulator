@@ -1,5 +1,7 @@
 #pragma once
 
+struct GLFWwindow;
+
 namespace Simulator {
 
     class Application {
@@ -7,9 +9,9 @@ namespace Simulator {
         Application();
         virtual ~Application();
 
-        virtual void OnUpdate(){};
-        virtual void OnRender(){};
-        virtual void OnStart(){};
+        virtual void OnUpdate(GLFWwindow* window){};
+        virtual void OnRender(GLFWwindow* window){};
+        virtual void OnStart(GLFWwindow* window){};
 
     };
 

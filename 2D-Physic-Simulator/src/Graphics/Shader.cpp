@@ -78,20 +78,27 @@ namespace SimulatorCore {
 		GLCall(glUseProgram(0));
 	}
 
-	void Shader::setUniform4f(const std::string& name, glm::vec4& v) {
+	void Shader::setUniform4f(const std::string& name,const glm::vec4& v) {
 		GLCall(glUniform4f(getUniformLocation(name),v.x,v.y,v.z,v.w));
 	}
 
-	void Shader::setUniform3f(const std::string& name, glm::vec3& v) {
+	void Shader::setUniform3f(const std::string& name,const glm::vec3& v) {
+		GLCall(glUniform3f(getUniformLocation(name), v.x, v.y, v.z));
 	}
 
-	void Shader::setUniform2f(const std::string& name, glm::vec2& v) {
+	void Shader::setUniform2f(const std::string& name,const glm::vec2& v) {
+		GLCall(glUniform2f(getUniformLocation(name), v.x, v.y));
 	}
 
-	void Shader::setUniformMat4f(const std::string& name, glm::mat4& v) {
+	void Shader::setUniform1f(const std::string& name,const float v) {
+		GLCall(glUniform1f(getUniformLocation(name),v));
+	}
+
+	void Shader::setUniformMat4f(const std::string& name,const glm::mat4& v) {
 		
 		GLCall(glUniformMatrix4fv(getUniformLocation(name),1,GL_FALSE, &v[0][0]));
 	}
+
 
 	int Shader::getUniformLocation(const std::string& name) {
 		if (m_uniformLocations.find(name) != m_uniformLocations.end())

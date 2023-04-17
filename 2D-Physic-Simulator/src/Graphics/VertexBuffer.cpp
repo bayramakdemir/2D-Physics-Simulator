@@ -16,5 +16,9 @@ namespace SimulatorCore {
 	void VertexBuffer::unbind() const {
 		GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
 	}
+	void VertexBuffer::setData(const void* data, uint32_t size) {
+		GLCall(glBindBuffer(GL_ARRAY_BUFFER, m_rendererID));
+		GLCall(glBufferSubData(GL_ARRAY_BUFFER, 0, size, data));
+	}
 }
 
