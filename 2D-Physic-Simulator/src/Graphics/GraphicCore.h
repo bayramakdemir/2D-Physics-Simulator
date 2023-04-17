@@ -37,6 +37,7 @@ namespace SimulatorCore {
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 		ImGui::StyleColorsDark();
 		const char* glsl_version = "#version 150";
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
@@ -54,7 +55,7 @@ namespace SimulatorCore {
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
 	void Clear() {
-		glClearColor(1, 0, 0, 1);
+		glClearColor(0, 0, 0, 1);
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
 	void Terminate(GLFWwindow* window) {

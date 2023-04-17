@@ -25,26 +25,11 @@
     <ClInclude Include="2D-Physic-Simulator\src\Manager\SceneManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
-    <ClInclude Include="2D-Physic-Simulator\src\Object\Object.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="2D-Physic-Simulator\src\Object\Scene.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="2D-Physic-Simulator\src\Physics\CircleMesh.h">
-      <Filter>Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="2D-Physic-Simulator\src\Physics\Mesh.h">
-      <Filter>Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="2D-Physic-Simulator\src\Physics\RectangleMesh.h">
-      <Filter>Physics</Filter>
-    </ClInclude>
     <ClInclude Include="2D-Physic-Simulator\src\Physics\Rigidbody.h">
       <Filter>Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="2D-Physic-Simulator\src\Shape\Circle.h">
-      <Filter>Shape</Filter>
     </ClInclude>
     <ClInclude Include="2D-Physic-Simulator\src\Simulator.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Simulator\Application.h">
@@ -63,31 +48,20 @@
     <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexArray.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexBufferLayout.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Graphics\Renderer.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Object\TransformComponent.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Object\OrthographicCamera.h" />
+    <ClInclude Include="2D-Physic-Simulator\Dependencies\include\stb\stb_image.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\Texture2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="2D-Physic-Simulator\src\Manager\SceneManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
-    <ClCompile Include="2D-Physic-Simulator\src\Object\Object.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
     <ClCompile Include="2D-Physic-Simulator\src\Object\Scene.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="2D-Physic-Simulator\src\Physics\CircleMesh.cpp">
-      <Filter>Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="2D-Physic-Simulator\src\Physics\Mesh.cpp">
-      <Filter>Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="2D-Physic-Simulator\src\Physics\RectangleMesh.cpp">
-      <Filter>Physics</Filter>
-    </ClCompile>
     <ClCompile Include="2D-Physic-Simulator\src\Physics\Rigidbody.cpp">
       <Filter>Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="2D-Physic-Simulator\src\Shape\Circle.cpp">
-      <Filter>Shape</Filter>
     </ClCompile>
     <ClCompile Include="2D-Physic-Simulator\src\Simulator\Application.cpp">
       <Filter>Simulator</Filter>
@@ -102,5 +76,8 @@
     <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexArray.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexBufferLayout.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Graphics\Renderer.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Object\TransformComponent.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Object\OrthographicCamera.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\Texture2D.cpp" />
   </ItemGroup>
 </Project>

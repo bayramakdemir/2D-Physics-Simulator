@@ -10,5 +10,4 @@ namespace Simulator {
 	Application::~Application() {
 	
 	};
-	void Application::Run() { LOG("Core application runs") };
 }

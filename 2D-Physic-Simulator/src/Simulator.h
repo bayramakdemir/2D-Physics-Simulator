@@ -10,17 +10,15 @@
 //manager
 #include "Manager/SceneManager.h"
 
-//Object
-#include "Object/Object.h"
+//GameObject
 #include "Object/Scene.h"
+#include "Object/OrthographicCamera.h"
 
-//Shape
-#include "Shape/Circle.h"
-
+//Grap
 #include "Graphics/Shader.h"
 #include "Graphics/IndexBuffer.h"
 #include "Graphics/VertexBuffer.h"
 #include "Graphics/VertexArray.h"
 #include "Graphics/Renderer.h"
-
-
+#include "Graphics/Texture2D.h"
+#include "Graphics/Renderer.h"

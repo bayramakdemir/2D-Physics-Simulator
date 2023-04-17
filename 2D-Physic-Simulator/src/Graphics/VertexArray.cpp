@@ -21,8 +21,13 @@ namespace SimulatorCore {
 			//offset must be in bytes. so count * elemtsizeinbytes
 			offset += element.count * VertexBufferLayoutElement::getSizeOfType(element.type);
 		}
-		
 	}
+
+	void VertexArray::setBuffer(std::shared_ptr<IndexBuffer>& buffer) {
+		bind();
+		m_indexBuffer = buffer;
+	}
+
 	void VertexArray::bind() const {
 		GLCall(glBindVertexArray(m_rendererID));
 	}
