@@ -7,11 +7,10 @@
 #include "Simulator/Application.h"
 #include "Simulator/EntryPoint.h"
 
-//manager
-#include "Manager/SceneManager.h"
 
 //GameObject
 #include "Object/Scene.h"
+#include "Object/Entity.h"
 #include "Object/OrthographicCamera.h"
 
 //Grap

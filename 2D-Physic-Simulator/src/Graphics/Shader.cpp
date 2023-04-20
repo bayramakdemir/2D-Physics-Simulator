@@ -52,7 +52,6 @@ namespace SimulatorCore {
 			compileShaderFromFile("../res/shaders/FragmentShader.glsl", Shader::FRAGMENT);
 		}
 		
-
 		GLCall(m_program = glCreateProgram());
 		GLCall(glAttachShader(m_program, m_shaders[0]));
 		GLCall(glAttachShader(m_program, m_shaders[1]));
@@ -60,7 +59,7 @@ namespace SimulatorCore {
 		GLCall(glValidateProgram(m_program));
 
 		int success;
-		GLCall(glGetProgramiv(m_program, GL_LINK_STATUS, &success));
+		glGetProgramiv(m_shaders[0], GL_LINK_STATUS, &success);
 		if (!success) {
 			char infoLog[512];
 			glGetProgramInfoLog(m_program, 512, NULL, infoLog);

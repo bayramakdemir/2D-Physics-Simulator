@@ -1,18 +1,23 @@
 #version 330 core
-layout (location = 0) in vec4 p_Pos;
-layout(location = 1) in vec3 aColor;
-layout(location = 2) in vec2 aTexCoord;
 
-uniform mat4 u_Model;
+layout(location = 0) in vec3 a_WorldPosition;
+layout(location = 1) in vec3 a_LocalPosition;
+layout(location = 2) in vec4 a_Color;
+layout(location = 3) in float a_Thickness;
+layout(location = 4) in float a_Fade;
+
 uniform mat4 u_ViewProjection;
 
-out vec3 ourColor;
-out vec2 TexCoord;
+out vec3 LocalPosition;
+out vec4 Color;
+out float Thickness;
+out float Fade;
 
-void main()
-{
-    //pass to fragment shader
-    gl_Position = u_ViewProjection * u_Model * p_Pos;
-    ourColor = aColor;
-    TexCoord = aTexCoord;
+void main() {
+	LocalPosition = a_LocalPosition;
+	Color = a_Color;
+	Thickness = a_Thickness;
+	Fade = a_Fade;
+
+	gl_Position = u_ViewProjection * vec4(a_WorldPosition, 1.0);
 }

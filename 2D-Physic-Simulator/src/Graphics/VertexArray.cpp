@@ -24,7 +24,7 @@ namespace SimulatorCore {
 	}
 
 	void VertexArray::setBuffer(std::shared_ptr<IndexBuffer>& buffer) {
-		bind();
+		buffer->bind();
 		m_indexBuffer = buffer;
 	}
 

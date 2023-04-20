@@ -1,19 +1,26 @@
 #pragma once
-#include <vector>
-#include <memory>
-#include "entt/entt.hpp"
+#include "Entity.h"
+#include "OrthographicCamera.h"
 
 namespace Simulator {
-	class SceneManager;
 
 	class Scene {
-		friend class SceneManager;
 	public:
-		void addEntity();
-		void render() const;
 
+		void render(const OrthographicCamera& camera) const;
+		void update() const;
+		void start() const;
+
+		void removeEntity(Entity& e);
+		Entity createEntity();
+
+		//TODO: remove in future
+		entt::registry* getRegistery(){
+			return &m_registery;
+		}
 	private:
 		entt::registry m_registery;
+		friend class Entity;
 	};
 }
 

@@ -1,15 +1,20 @@
 #version 330 core
-out vec4 FragColor;
-//in float radius;
-//in vec2 screenPos;
 
-in vec3 ourColor;
-in vec2 TexCoord;
-uniform sampler2D ourTexture;
+in vec3 LocalPosition;
+in vec4 Color;
+in float Thickness;
+in float Fade;
 
 void main() {
-    vec4 color = texture(ourTexture, TexCoord);
-    if (color.x == 0.0f)
-        discard;
-    gl_FragColor = color;
+	// Calculate distance and fill circle with white
+	float distance = 1.0 - length(LocalPosition);
+	float circle = smoothstep(0.0, Fade, distance);
+	circle *= smoothstep(Thickness + Fade, Thickness, distance);
+
+	if (circle == 0.0)
+		discard;
+
+	// Set output color
+	gl_FragColor = Color;
+	gl_FragColor.a *= circle;
 }

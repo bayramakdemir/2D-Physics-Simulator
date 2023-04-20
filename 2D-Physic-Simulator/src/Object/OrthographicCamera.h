@@ -23,13 +23,20 @@ namespace Simulator {
 			recalculateViewMatrix();
 		};
 
+		void zoom(float zoom);
+
 		const glm::mat4& getProjectionMatrix() const { return m_projectionMatrix; }
 		const glm::mat4& getViewMatrix() const { return m_viewMatrix; }
 		const glm::mat4& getViewProjectionMatrix() const { return m_viewProjectionMatrix; }
+		const glm::vec2 screenToWorldCoord(const glm::vec2& point, const glm::vec2& screen_size);
+
 	protected:
 		glm::mat4 m_viewProjectionMatrix;
 		glm::mat4 m_viewMatrix;
 		glm::mat4 m_projectionMatrix;
+
+		glm::vec4 m_boundry;
+		float m_zoom_level;
 
 		glm::vec3 m_position = { 0.0f, 0.0f, 0.0f };
 		float m_rotation = 0.0f;
