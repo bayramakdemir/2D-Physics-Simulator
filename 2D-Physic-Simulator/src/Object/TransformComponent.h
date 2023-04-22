@@ -3,7 +3,7 @@
 #include "../Graphics/Shader.h"
 
 namespace Simulator {
-	class TransformComponent {
+	struct TransformComponent {
 	public:
 		TransformComponent();
 
@@ -13,15 +13,13 @@ namespace Simulator {
 
 		const glm::vec3& getPosition() const;
 		const glm::vec3& getRotation() const;
-		const glm::mat4& getTransformationMatrix();
+		const glm::mat4 getTransformationMatrix() const;
 		const glm::vec3& getScale() const;
 
 	private:
-		glm::mat4 m_modelMatrix;
 		glm::vec3 m_position;
 		glm::vec3 m_rotation;
 		glm::vec3 m_scale;
-		bool m_scaled, m_rotated, m_moved;
 	};
 
 }

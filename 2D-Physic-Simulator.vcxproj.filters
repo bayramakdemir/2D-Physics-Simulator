@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{1653CE33-0220-293F-2B39-17E717655ECD}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Manager">
       <UniqueIdentifier>{40C44515-ACA3-C4B0-B5BB-4F87211A2B12}</UniqueIdentifier>
     </Filter>
@@ -9,9 +12,6 @@
     </Filter>
     <Filter Include="Physics">
       <UniqueIdentifier>{888B590D-F46A-D8A8-FD82-637F69E13E0A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Shape">
-      <UniqueIdentifier>{D6A4170E-42B9-3FBF-0B3B-E31E770E3CF0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Simulator">
       <UniqueIdentifier>{6571C67C-D1DB-7AF3-1A1A-2C9986C35848}</UniqueIdentifier>
@@ -22,14 +22,38 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2D-Physic-Simulator\src\Core.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Manager\SceneManager.h">
-      <Filter>Manager</Filter>
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\GraphicCore.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\IndexBuffer.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\Renderer.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\Shader.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\Texture2D.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexArray.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexBuffer.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexBufferLayout.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="2D-Physic-Simulator\src\Object\OrthographicCamera.h">
+      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="2D-Physic-Simulator\src\Object\Scene.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="2D-Physic-Simulator\src\Physics\Rigidbody.h">
-      <Filter>Physics</Filter>
+    <ClInclude Include="2D-Physic-Simulator\src\Object\TransformComponent.h">
+      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="2D-Physic-Simulator\src\Simulator.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Simulator\Application.h">
@@ -41,27 +65,43 @@
     <ClInclude Include="2D-Physic-Simulator\src\Window\WindowsWindow.h">
       <Filter>Window</Filter>
     </ClInclude>
-    <ClInclude Include="2D-Physic-Simulator\src\Graphics\GraphicCore.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Graphics\Shader.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexBuffer.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Graphics\IndexBuffer.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexArray.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexBufferLayout.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Graphics\Renderer.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Object\TransformComponent.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Object\OrthographicCamera.h" />
-    <ClInclude Include="2D-Physic-Simulator\Dependencies\include\stb\stb_image.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Graphics\Texture2D.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Manager\Event.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Object\Entity.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Object\RendererComponent.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Object\PhysicComponent.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Physics\Solver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="2D-Physic-Simulator\src\Manager\SceneManager.cpp">
-      <Filter>Manager</Filter>
+    <ClCompile Include="2D-Physic-Simulator\src\Core.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\IndexBuffer.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\Renderer.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\Shader.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\Texture2D.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexArray.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexBuffer.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexBufferLayout.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="2D-Physic-Simulator\src\Object\OrthographicCamera.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="2D-Physic-Simulator\src\Object\Scene.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="2D-Physic-Simulator\src\Physics\Rigidbody.cpp">
-      <Filter>Physics</Filter>
+    <ClCompile Include="2D-Physic-Simulator\src\Object\TransformComponent.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="2D-Physic-Simulator\src\Simulator\Application.cpp">
       <Filter>Simulator</Filter>
@@ -69,15 +109,10 @@
     <ClCompile Include="2D-Physic-Simulator\src\Window\WindowsWindow.cpp">
       <Filter>Window</Filter>
     </ClCompile>
-    <ClCompile Include="2D-Physic-Simulator\src\Graphics\Shader.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Core.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexBuffer.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Graphics\IndexBuffer.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexArray.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexBufferLayout.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Graphics\Renderer.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Object\TransformComponent.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Object\OrthographicCamera.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Graphics\Texture2D.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Manager\Event.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Object\Entity.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Object\RendererComponent.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Object\PhysicComponent.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Physics\Solver.cpp" />
   </ItemGroup>
 </Project>

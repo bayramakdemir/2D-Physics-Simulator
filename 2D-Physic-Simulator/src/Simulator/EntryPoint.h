@@ -18,7 +18,6 @@ int main(int argc, char** argv) {
 	Simulator::WindowsWindow windows_window;
 	GLFWwindow* window = windows_window.CreateWindow(640, 640);
 	glfwMakeContextCurrent(window);
-	
 
 	SimulatorCore::InitGlew();
 	SimulatorCore::InitImGui(window);

@@ -93,16 +93,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\RectangleEntity.cpp" />
     <ClCompile Include="src\TestApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\2D-Physic-Simulator.vcxproj">
       <Project>{C55D4582-31BF-2290-BA2C-6942268D594F}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\RectangleEntity.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
