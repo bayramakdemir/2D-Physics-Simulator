@@ -110,11 +110,12 @@
     <ClInclude Include="2D-Physic-Simulator\src\Graphics\VertexBufferLayout.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Manager\Event.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Object\Entity.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Object\PhysicComponent.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Object\OrthographicCamera.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Object\RendererComponent.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Object\Scene.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Object\TransformComponent.h" />
-    <ClInclude Include="2D-Physic-Simulator\src\Physics\Rigidbody.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Physics\Solver.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Simulator.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Simulator\Application.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Simulator\EntryPoint.h" />
@@ -131,10 +132,11 @@
     <ClCompile Include="2D-Physic-Simulator\src\Graphics\VertexBufferLayout.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Manager\Event.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Object\OrthographicCamera.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Object\PhysicComponent.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Object\RendererComponent.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Object\Scene.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Object\TransformComponent.cpp" />
-    <ClCompile Include="2D-Physic-Simulator\src\Physics\Rigidbody.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Physics\Solver.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Simulator\Application.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Window\WindowsWindow.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Object\Entity.cpp" />

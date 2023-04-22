@@ -29,7 +29,7 @@ namespace Simulator {
 	const glm::vec3& TransformComponent::getScale() const {
 		return m_scale;
 	}
-	const glm::mat4& TransformComponent::getTransformationMatrix() const{
+	const glm::mat4 TransformComponent::getTransformationMatrix() const{
 		glm::mat4 rotation = glm::toMat4(glm::quat(m_rotation));
 
 		return glm::translate(glm::mat4(1.0f), m_position)

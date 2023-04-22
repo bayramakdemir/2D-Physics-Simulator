@@ -9,6 +9,7 @@ namespace Simulator {
 	public:
 		Entity() = default;
 		Entity(Scene* scene);
+		Entity(Scene* scene, entt::entity entity);
 		Entity(const Entity& other) = default;
 
 		template <typename T, typename... Args>

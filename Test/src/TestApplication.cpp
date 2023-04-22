@@ -17,9 +17,9 @@ private:
 	};
 	WindowData m_data;
 
-	int size = 100;
-	std::vector<glm::vec2> positions;
+	int size = 0;
 	std::mt19937_64 gen64;
+	
 public:
     TestApplication() {
 
@@ -51,14 +51,15 @@ public:
 		m_Scene.start();
 		for (int x = 0; x < size; x++) {
 			for (int y = 0; y < size; y++) {
-				positions.push_back({ x,y });
-				auto circle = m_Scene.createEntity();
+				auto& circle = m_Scene.createEntity();
 				circle.addComponent<Simulator::CircleRendererComponent>();
-				auto transform = circle.getComponent< Simulator::TransformComponent>();
+				
+				auto& transform = circle.getComponent< Simulator::TransformComponent>();
 				transform.setPosition({ x,y, 0.0f });
+		
+				circle.addComponent<Simulator::CircleRigidbody>(&transform);
 			}
 		}
-
 		
 
 		SimulatorCore::Renderer::Init();
@@ -83,35 +84,19 @@ public:
 		m_camera->zoom(io.MouseWheel * io.DeltaTime * zoomSpeed);
 		
 	}
-
+	bool solving = false;
 	void OnRender(GLFWwindow* window) override{
 
 		ImGuiIO& io = ImGui::GetIO();
 		ImGui::Begin("Stats");
-		/*static float pos[2];
-		static float scale[2] = {1.0f,1.0f};
-		
-		ImGui::SliderFloat2("Position", pos, 0, 10.0f);
-		ImGui::SliderFloat2("scale", scale, 0.1f, 5.0f);*/
-	
-		
-		for (glm::vec2& pos : positions) {
-			pos.x += (((float)gen64() / gen64.max()) - 0.5f) * io.DeltaTime;
-			pos.y += (((float)gen64() / gen64.max()) - 0.5f) * io.DeltaTime;
-		}
 
-		auto view = (*m_Scene.getRegistery()).view<Simulator::TransformComponent>();
-		int i = 0;
-		for (auto entity : view) {
-			auto& transform = view.get<Simulator::TransformComponent>(entity);
-			transform.setPosition({ positions[i].x ,positions[i].y,0.0f});
-			i++;
-		}
+		Simulator::Solver::Solve(m_Scene, io.DeltaTime);
 
 		auto start = std::chrono::high_resolution_clock::now();
 		
 		//RENDER 
 		m_Scene.render(*m_camera);
+		
 			
 		auto end = std::chrono::high_resolution_clock::now();
 		auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
@@ -123,6 +108,27 @@ public:
 		double x, y;
 		glfwGetCursorPos(window, &x, &y);
 		const glm::vec2 worldp = m_camera->screenToWorldCoord({ x,y }, { io.DisplaySize.x,io.DisplaySize.y });
+
+		static bool pressed = false;
+		if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !pressed) {
+			auto& circle = m_Scene.createEntity();
+			auto& renderer =circle.addComponent<Simulator::CircleRendererComponent>();
+
+			auto& transform = circle.getComponent< Simulator::TransformComponent>();
+			transform.setPosition({ worldp.x,worldp.y, 0.0f });
+			std::uniform_real_distribution<float> unif(0, 1);
+			renderer.color = { unif(gen64),unif(gen64),unif(gen64),1.0f };
+			circle.addComponent<Simulator::CircleRigidbody>(&transform);
+			const float scale = unif(gen64) + 0.4f;
+			transform.setScale({ scale,scale,scale } );
+			
+			//pressed = true;
+		}
+		if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE) {
+			//pressed = false;
+		}
+
+
 		ImGui::Text("mouse world pos: %.3f,%.3f",worldp.x, worldp.y);
 		ImGui::Text("render call took: %.2f ms", duration.count()/1000.0f);
 		ImGui::End();

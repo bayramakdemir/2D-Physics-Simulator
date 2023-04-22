@@ -161,7 +161,7 @@ namespace SimulatorCore {
 		if (drawnTriangles > s_Data.MaxVertices / 3) {
 			nextBatch();
 		}
-
+		
 		constexpr size_t quadVertexCount = 4;
 		for (size_t i = 0; i < quadVertexCount; i++) {
 			s_Data.CircleVertexBufferPtr->WorldPosition = transform * s_Data.QuadVertexPositions[i];

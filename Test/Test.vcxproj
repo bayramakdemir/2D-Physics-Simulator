@@ -93,10 +93,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\RectangleEntity.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\RectangleEntity.cpp" />
     <ClCompile Include="src\TestApplication.cpp" />
   </ItemGroup>
   <ItemGroup>

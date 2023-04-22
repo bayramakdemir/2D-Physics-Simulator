@@ -13,7 +13,7 @@ namespace Simulator {
 
 		const glm::vec3& getPosition() const;
 		const glm::vec3& getRotation() const;
-		const glm::mat4& getTransformationMatrix() const;
+		const glm::mat4 getTransformationMatrix() const;
 		const glm::vec3& getScale() const;
 
 	private:
