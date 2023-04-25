@@ -70,6 +70,8 @@
     <ClInclude Include="2D-Physic-Simulator\src\Object\RendererComponent.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Object\PhysicComponent.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Physics\Solver.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Utils\QuadTree.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Utils\Grid.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="2D-Physic-Simulator\src\Core.cpp" />
@@ -114,5 +116,7 @@
     <ClCompile Include="2D-Physic-Simulator\src\Object\RendererComponent.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Object\PhysicComponent.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Physics\Solver.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Utils\QuadTree.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Utils\Grid.cpp" />
   </ItemGroup>
 </Project>

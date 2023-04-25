@@ -1,5 +1,7 @@
 #include "Solver.h"
 #include "../Object/RendererComponent.h"
+#include <chrono>
+#include <ImGui/imgui.h>
 
 namespace Simulator {
 	float Solver::s_gravity = -5000.0f;
@@ -7,22 +9,27 @@ namespace Simulator {
 	float Solver::s_constraint_radius = { 20.0f };
 
 	void Solver::Solve(Scene& scene, float dt) {
-		//TODO: substep;
+
 		const int sub_step = 4;
 		const float step_dt = dt / static_cast<float>(sub_step);
+		std::chrono::microseconds time{0};
+		std::chrono::microseconds time2{ 0 };
+
 		for (int i{ sub_step }; i > 0; i--) {
 			
 			auto view = (*scene.getRegistery()).view<TransformComponent, CircleRigidbody>();
+			
 			for (auto [ent1,transform1, rb1] : view.each()) {
 			
 				//apply s_gravity
 				rb1.accelerate({ 0.0f, s_gravity * step_dt });
 
 				//check collisions
-		
-				for (auto ent2 : view) {
+				auto single_view = (*scene.getRegistery()).view<TransformComponent>();
+				for (auto ent2 : single_view) {
 					if (ent1 != ent2) {
-						TransformComponent& transform2 = view.get<TransformComponent>(ent2);
+						TransformComponent& transform2 = single_view.get<TransformComponent>(ent2);
+
 						SolveCollisions(transform1, transform2);
 					}
 				}
@@ -50,11 +57,6 @@ namespace Simulator {
 
 	void Solver::SolveCollisions(TransformComponent& entity, TransformComponent& other) {
 		constexpr float responce_coeff = 0.9f;
-		//if collide, find collision axes which means that
-		// distance =  object2.pos - object1.pos
-		// collision distance = object1.radius + object2.radius - distance
-		//object1.pos -= collision distance * 0.5f
-		//object2.pos += collision distance * 0.5f
 		const glm::vec3 distance = other.getPosition() - entity.getPosition();
 		const float collision_distance = entity.getScale().x*0.5f + other.getScale().x * 0.5f - glm::length(distance);
 

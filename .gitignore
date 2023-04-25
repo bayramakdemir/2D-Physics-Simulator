@@ -363,3 +363,11 @@ MigrationBackup/
 FodyWeavers.xsd
 
 bin-int/
+*.vxproj
+*.filters
+*.sln
+2D-Physic-Simulator/src/Utils/*.h
+2D-Physic-Simulator/src/Utils/*.cpp
+2D-Physic-Simulator/src/Utils/*.cpp
+Test/imgui.ini
+Test/*.vxproj

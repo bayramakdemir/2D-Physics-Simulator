@@ -120,6 +120,8 @@
     <ClInclude Include="2D-Physic-Simulator\src\Simulator\Application.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Simulator\EntryPoint.h" />
     <ClInclude Include="2D-Physic-Simulator\src\Window\WindowsWindow.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Utils\QuadTree.h" />
+    <ClInclude Include="2D-Physic-Simulator\src\Utils\Grid.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="2D-Physic-Simulator\src\Core.cpp" />
@@ -140,6 +142,8 @@
     <ClCompile Include="2D-Physic-Simulator\src\Simulator\Application.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Window\WindowsWindow.cpp" />
     <ClCompile Include="2D-Physic-Simulator\src\Object\Entity.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Utils\QuadTree.cpp" />
+    <ClCompile Include="2D-Physic-Simulator\src\Utils\Grid.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ImGui.vcxproj">

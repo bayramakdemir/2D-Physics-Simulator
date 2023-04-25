@@ -92,14 +92,8 @@ public:
 
 		Simulator::Solver::Solve(m_Scene, io.DeltaTime);
 
-		auto start = std::chrono::high_resolution_clock::now();
-		
 		//RENDER 
 		m_Scene.render(*m_camera);
-		
-			
-		auto end = std::chrono::high_resolution_clock::now();
-		auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
 		ImGui::Text("Renderer Triangle Count:%d \nRenderer render call Count:%d", 
@@ -128,9 +122,7 @@ public:
 			//pressed = false;
 		}
 
-
 		ImGui::Text("mouse world pos: %.3f,%.3f",worldp.x, worldp.y);
-		ImGui::Text("render call took: %.2f ms", duration.count()/1000.0f);
 		ImGui::End();
     }
 };
